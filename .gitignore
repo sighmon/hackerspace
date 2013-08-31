@@ -18,3 +18,8 @@
 # Ignore Sublime Text project file.
 *.sublime-project
 *.sublime-workspace
+
+# Ignore .rvmrc and ruby version
+.rvmrc
+.ruby-version
+.ruby-gemset
