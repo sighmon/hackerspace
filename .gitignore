@@ -17,3 +17,4 @@
 
 # Ignore Sublime Text project file.
 *.sublime-project
+*.sublime-workspace
