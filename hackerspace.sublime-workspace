@@ -1,0 +1,481 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"al",
+				"alt	Attr"
+			],
+			[
+				"background-c",
+				"background-color"
+			],
+			[
+				"back",
+				"background"
+			],
+			[
+				"head",
+				"header	Tag"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"time",
+				"timeToVisit"
+			],
+			[
+				"get",
+				"getTime"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"border-left-",
+				"border-left-width"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 267.0,
+		"selected_items":
+		[
+			[
+				"Snippet: ",
+				"Snippet: html"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: sc",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/simos/Sites/heroku/NI/app/assets/stylesheets/bootstrap_and_overrides.css.less",
+		"/Users/simos/Sites/sighmon.com/kristiann/css/flipclock.css",
+		"/Users/simos/Sites/sighmon.com/kristiann/js/kristiann.js",
+		"/Users/simos/Sites/sighmon.com/kristiann/index.html",
+		"/Users/simos/Sites/heroku/00-logs/130826-logs.txt",
+		"/Users/simos/Sites/sighmon.com/css/sighmon.css",
+		"/Volumes/Macintosh HD/Applications/MAMP/htdocs/stone/ndxzsite/stone/base.css",
+		"/Volumes/Macintosh HD/Applications/MAMP/htdocs/stone/ndxzsite/stone/style.css",
+		"/Volumes/Macintosh HD/Applications/MAMP/htdocs/stone/ndxzsite/plugin/format.random_image.php",
+		"/Volumes/Macintosh HD/Applications/MAMP/htdocs/stone/ndxzsite/plugin/format.visual_index.php",
+		"/Volumes/Macintosh HD/Applications/MAMP/htdocs/stone/ndxzsite/plugin/index.php",
+		"/Volumes/Macintosh HD/Applications/MAMP/htdocs/stone/ndxzsite/default/index.php",
+		"/private/etc/php.ini",
+		"/Users/simos/Sites/heroku/00-HTML-bits/markdown.md",
+		"/Users/simos/Sites/heroku/00-HTML-bits/tmp-2.html",
+		"/Users/simos/Sites/heroku/00-HTML-bits/profile.html",
+		"/Users/simos/Desktop/something.coffee",
+		"/Users/simos/Coding/crazyflie quadcopter/cfclient-2013.4.1/lib/cfclient/utils/input.py",
+		"/Users/simos/Sites/heroku/00-ssl/bundle.pem",
+		"/Volumes/Mirror/Oz/js/home-magazines.js",
+		"/Users/simos/Sites/heroku/00-HTML-bits/image_helper.html",
+		"/Users/simos/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"round",
+			".header ",
+			"text_block_height",
+			"<p>",
+			"return \"#img-container { {$grid} }\n// #img-container #text { float: left; width: \" . ($this->text_width + $this->text_padding_right) . \"px; }\n// #img-container #text p { width: \" . $this->text_width . \"px; }\n// #img-container .picture_holder { float: left; }\n// #img-container .picture { position: relative;{$align} }\n// #img-container .picture { {$picture_width}{$picture_height} }\n// #img-container .picture_holder { padding: 0 0 0 0; }\n// #img-container .captioning { height: {$title_block}px; text-align: center;{$caption_width} }\n// #img-container .captioning .title { margin-top: 3px; text-align: {$talign}; }\";",
+			"img-container",
+			"media",
+			"section",
+			"section_title",
+			"<sup>",
+			"^",
+			"<i>",
+			"_",
+			"<b>",
+			"*",
+			" ",
+			"<i>",
+			"_",
+			"<b>",
+			"*",
+			"<b>",
+			"*",
+			"<i>",
+			"_",
+			"<b>",
+			"*",
+			" ",
+			".org",
+			"www.",
+			"<p><br /><br /></p>",
+			"<p></p>",
+			"h4>",
+			"<i>",
+			"_",
+			"<b>",
+			"</font></b></p>",
+			"<p><b><font size=\"4\">",
+			"<b>",
+			"*",
+			"<sup>",
+			"^",
+			"*",
+			"<i>",
+			"_",
+			"<b>",
+			"*",
+			"em>",
+			"<h3>",
+			"<sup>",
+			"^",
+			"</font></b></p>",
+			"<p><b><font size=\"4\">",
+			"\n",
+			"<b>",
+			"*",
+			"see ",
+			"em>",
+			"<em>NI</em>",
+			"NI",
+			"<sup>",
+			"^",
+			"\n",
+			"<dt class='star-ratings-previous-year'>1999</dt>",
+			"</font></b></p>",
+			"<p><b><font size=\"4\">",
+			" ",
+			"</font></b></p>",
+			"<p><b><font size=\"4\">",
+			" ",
+			"<p>-----</p>",
+			"<p><h3>",
+			"</h3></p>",
+			"</b></font>",
+			"<font color=\"#990000\" size=\"4\"><b>",
+			"<p>-----</p>",
+			"\n",
+			"</b></p><p>",
+			"</p><p> <b>",
+			"</p><p>* ",
+			"</b></p>",
+			"<p><b>",
+			"</p><h3>",
+			"www",
+			"<p>-----</p>",
+			"</font></p>",
+			"</font></b><font size=\"4\">",
+			"h3",
+			"</font></b></p>",
+			"<p><b><font size=\"4\">",
+			"|cartoon]",
+			"</font></b></p>",
+			"</font><font size=\"4\"> <br />",
+			"<p><b><font color=\"#CC0000\" size=\"4\">",
+			"<p>-----</p>",
+			"<h3><b>",
+			"<p> <h3>",
+			"<p> -----</p>",
+			"</font>",
+			"<font color=\"#CC0000\" size=\"4\">",
+			"</b></p><p>",
+			"</p><p><b>",
+			"\n",
+			"<dt class='star-ratings-previous-year'>1998</dt>",
+			"h3",
+			"</b></p><p>",
+			"</p><p><b>",
+			" ",
+			"</b></p><p>",
+			"</p><p><b>",
+			"</font>",
+			"<font color=\"#009900\">",
+			"</b></p>",
+			"<p><b>",
+			"</b></p><p>",
+			"</p><p><b style=\"font-style:normal; text-transform: uppercase;\">",
+			"/h3>",
+			"</b></p><p>",
+			"</p><p><b>",
+			"</b></p><p>",
+			"</p><p><b>",
+			"</p><h3>",
+			"</p><h4>",
+			"\n",
+			"</b></p><p>",
+			"</p><p><b>",
+			" ",
+			"NI",
+			"\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"</sup>",
+			"<sup>",
+			"</i>",
+			"<i>",
+			"</b>",
+			"<b>",
+			"",
+			"</i>",
+			"<i>",
+			"</b>",
+			"<b>",
+			"</b>",
+			"<b>",
+			"</i>",
+			"<i>",
+			"</b>",
+			"<b>",
+			"",
+			"h3>",
+			"</i>",
+			"<i>",
+			"</b>",
+			"</h3>",
+			"<h3>",
+			"<b>",
+			"</sup>",
+			"<sup>",
+			"<b>",
+			"</i>",
+			"<i>",
+			"</b>",
+			"<b>",
+			"b>",
+			"<hr /><h3>",
+			"</sup>",
+			"<sup>",
+			"</h3>",
+			"<h3>",
+			"\n\n",
+			"</b>",
+			"<b>",
+			"b>",
+			"<b>NI</b>",
+			"<sup>",
+			"\n\n",
+			"<dt class='star-ratings-previous-year'>1992</dt>",
+			"</h3>",
+			"<h3>",
+			"",
+			"</h3>",
+			"<h3>",
+			"",
+			"<hr />",
+			"<h3>",
+			"</h3>",
+			"<h3>",
+			"<hr />",
+			"\n\n",
+			"</h3><p>",
+			"</p><h3>",
+			"</li><li>",
+			"</h3>",
+			"<h3>",
+			"</p><hr /><h3>",
+			"<hr />",
+			"</h4>",
+			"</h3><h4>",
+			"</h3>",
+			"<h3>",
+			"|cartoon|ns]",
+			"</h4>",
+			"</h3><h4>",
+			"<h3>",
+			"<hr />",
+			"<h3>",
+			"<hr />",
+			"</h3>",
+			"<h3>",
+			"</h3><p>",
+			"</p><h3>",
+			"\n\n",
+			"<dt class='star-ratings-previous-year'>1999</dt>",
+			"</h3><p>",
+			"</p><h3>",
+			"",
+			"</h3><p>",
+			"</p><h3>",
+			"",
+			"</h3>",
+			"<h3>",
+			"</h3><p>",
+			"</p><h3>",
+			"</h3><p>",
+			"</p><h3>",
+			"</h3><p>",
+			"</p><h3>",
+			"</p><hr /><h3>",
+			"</p><hr /><h4>",
+			"\n\n",
+			"</h3><p>",
+			"</p><h3>",
+			"",
+			"\n\n",
+			"</h3>",
+			"<h3>",
+			"</h3>",
+			"<h3>",
+			"<h4>FEAR:",
+			"</h3>",
+			"<h3>",
+			"<h4>FEAR:</h4>",
+			"<hr />",
+			"",
+			"</h3>",
+			"<h3>",
+			"</h4>",
+			"</h3><h4>",
+			"<h3>",
+			"<hr />",
+			"<h3>",
+			"",
+			"</h3>",
+			"<h3>",
+			"</p><h3>",
+			"<h3>",
+			"</h3>",
+			"<h3>"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"project": "hackerspace.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 203.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 3
+	}
+}
