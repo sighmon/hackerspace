@@ -39,6 +39,9 @@ end
 # User authentication via Devise https://github.com/plataformatec/devise
 gem 'devise'
 
+# Retina images with https://github.com/davydotcom/retina_tag
+gem 'retina_tag'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

@@ -1,2 +1,26 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<!-- Jumbotron -->
+<div class="jumbotron">
+	<%= image_tag "hackerspace-adelaide-logo.png", :alt => "Hackerspace Adelaide Membership website", :title => "Hackerspace Adelaide Membership website", :width => 200, :class => "home-logo" %>
+	<h1>Marketing stuff!</h1>
+	<p class="lead">This is where our amazing marketing spiel goes to entice people to want to give their everything to hackerspace.</p>
+	<p><a class="btn btn-lg btn-success" href="#">Become a member!</a></p>
+</div>
+
+<!-- Example row of columns -->
+<div class="row">
+	<div class="col-lg-4">
+		<h2>Blog</h2>
+		<p>Here's where a small feed of blog updates will be pulled in.. maybe some photos too?</p>
+		<p><%= link_to raw('Read the blog &raquo;'), 'http://hackerspace-adelaide.org.au/blog', :class => 'btn btn-primary' %></p>
+	</div>
+	<div class="col-lg-4">
+		<h2>Wiki</h2>
+		<p>Latest pages to be edited on the wiki?</p>
+		<p><%= link_to raw('Read the wiki &raquo;'), 'http://hackerspace-adelaide.org.au/wiki', :class => 'btn btn-primary' %></p>
+	</div>
+	<div class="col-lg-4">
+		<h2>Email list</h2>
+		<p>It's probably time we actually made a proper email list so that we can mail people a summary of projects that our members are working on and or group projects. Perhaps even announce new tools that we've bought.</p>
+		<p><a class="btn btn-primary" href="#">Join the email list &raquo;</a></p>
+	</div>
+</div>
