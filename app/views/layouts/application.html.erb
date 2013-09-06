@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hackerspace Adelaide</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Hackerspace Adelaide</title>
+	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= csrf_meta_tags %>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -13,7 +13,17 @@
 		<div class="navbar-header">
 			<%= link_to 'Hackerspace Adelaide', root_url, :class => 'navbar-brand' %>
 		</div>
+
+		<div class="collapse navbar-collapse navbar-ex1-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><%= button_to 'Sign up', new_user_registration_path, :method => 'get', :class => 'btn btn-default navbar-btn' %></li>
+				<li><%= button_to 'Sign in', new_user_session_path, :method => 'get', :class => 'btn btn-default navbar-btn' %></li>
+			</ul>
+		</div>
+		
 	</nav>
+
+	<%= render partial: "shared/flash_messages", flash: flash %> 
 
 <%= yield %>
 
