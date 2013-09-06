@@ -3,11 +3,12 @@ List of components installed
 
 $ rails generate devise:install
 
-If we want to customise devise views:
-$ rails g devise:views
+$ rails generate devise:views
 
 $ rails generate devise User
 
 Alerts:
 https://gist.github.com/roberto/3344628
 
+Analytics: (how does this look to you pix?)
+http://railsapps.github.io/rails-google-analytics.html
