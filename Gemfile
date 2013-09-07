@@ -45,6 +45,9 @@ gem 'retina_tag'
 # Application config variables https://github.com/laserlemon/figaro
 gem 'figaro'
 
+# Meta tags https://github.com/kpumuk/meta-tags
+gem 'meta-tags', :require => 'meta_tags'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
