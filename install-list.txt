@@ -15,3 +15,4 @@ http://railsapps.github.io/rails-google-analytics.html
 
 $ rails generate figaro:install
 
+$ rails generate migration add_username_to_users username:string
