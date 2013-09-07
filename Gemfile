@@ -42,6 +42,9 @@ gem 'devise'
 # Retina images with https://github.com/davydotcom/retina_tag
 gem 'retina_tag'
 
+# Application config variables https://github.com/laserlemon/figaro
+gem 'figaro'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

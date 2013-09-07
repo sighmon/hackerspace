@@ -10,5 +10,8 @@ $ rails generate devise User
 Alerts:
 https://gist.github.com/roberto/3344628
 
-Analytics: (how does this look to you pix?)
+Analytics:
 http://railsapps.github.io/rails-google-analytics.html
+
+$ rails generate figaro:install
+
