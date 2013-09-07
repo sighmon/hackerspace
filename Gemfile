@@ -48,6 +48,9 @@ gem 'figaro'
 # Meta tags https://github.com/kpumuk/meta-tags
 gem 'meta-tags', :require => 'meta_tags'
 
+# Bootstrap generators https://github.com/decioferreira/bootstrap-generators
+gem 'bootstrap-generators', '~> 3.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
