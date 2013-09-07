@@ -9,7 +9,7 @@ class HomeController < ApplicationController
 							:title => @page_title_home,
 							:description => @page_description,
 							:url   => root_url,
-							:image => '/assets/hackerspace-adelaide-logo@2x.png',
+							:image => ActionController::Base.helpers.asset_url('hackerspace-adelaide-logo@2x.png'),
 							:site_name => "Hackerspace Adelaide Membership Website"
 						},
 						:twitter => {
@@ -19,7 +19,7 @@ class HomeController < ApplicationController
 							:title => @page_title_home,
 							:description => @page_description,
 							:image => {
-								:src => '/assets/hackerspace-adelaide-logo@2x.png'
+								:src => ActionController::Base.helpers.asset_url('hackerspace-adelaide-logo@2x.png')
 							}
 						}
 	end
