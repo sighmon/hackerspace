@@ -18,3 +18,5 @@ $ rails generate figaro:install
 $ rails generate migration add_username_to_users username:string
 
 $ rails g controller Registrations
+
+$ rails g scaffold page title:string permalink:string:index body:text

@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130907083912) do
+ActiveRecord::Schema.define(version: 20130914052037) do
+
+  create_table "pages", force: true do |t|
+    t.string   "title"
+    t.string   "permalink"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "pages", ["permalink"], name: "index_pages_on_permalink"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -1,5 +1,7 @@
 Hackerspace::Application.routes.draw do
 
+  resources :pages
+
   devise_for :users, :controllers => { :registrations => "registrations" }
 
   resources :users, :only => [:show]
@@ -10,6 +12,11 @@ Hackerspace::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
+
+  # Routes for all Pages - About, help etc..
+  # get ':id', to: 'pages#show', as: :page
+  # put ':id', to: 'pages#update', as: :page
+  # delete ':id', to: 'pages#destroy', as: :page
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
