@@ -31,7 +31,7 @@
 					<% if user_signed_in? %>
 						<!-- Split button -->
 						<div class="btn-group">
-							<button type="button" class="navbar-btn btn btn-default"><span class="glyphicon glyphicon-user"></span> <%= current_user.username %></button>
+							<%= link_to raw("<span class='glyphicon glyphicon-user'></span> #{current_user.username}"), current_user, :class => 'navbar-btn btn btn-default' %>
 							<button type="button" class="navbar-btn btn btn-default dropdown-toggle" data-toggle="dropdown">
 								<span class="caret"></span>
 							</button>
