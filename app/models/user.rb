@@ -4,6 +4,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  # Validate username
+  validates :username, :presence => true
+  validates :username,
+    :uniqueness => {
+      :case_sensitive => false
+    }
+
   def is_admin?
   	# TODO: add admin flag to Users
   	return true

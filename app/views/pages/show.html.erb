@@ -3,7 +3,7 @@
 <p><%= @page.body %></p>
 
 <div class="form-actions">
-	<% if current_user.is_admin? %>
+	<% if current_user and current_user.is_admin? %>
 		<%= link_to 'Edit', edit_page_path(@page), class: 'btn btn-warning' %> 
 	<% end %>
 	<%= link_to 'Back', pages_path, class: 'btn btn-default' %>
