@@ -3,7 +3,7 @@
 	<%= image_tag "hackerspace-adelaide-logo.png", :alt => "Hackerspace Adelaide Membership website", :title => "Hackerspace Adelaide Membership website", :width => 200, :class => "home-logo" %>
 	<h1>Marketing stuff!</h1>
 	<p class="lead">This is where our amazing marketing spiel goes to entice people to want to give their everything to hackerspace.</p>
-	<% if !current_user.has_membership? %>
+	<% unless try(:current_user).try(:has_membership?) %>
 		<p><%= link_to 'Become a member!', page_path('membership'), class: 'btn btn-lg btn-success' %></p>
 	<% end %>
 </div>
