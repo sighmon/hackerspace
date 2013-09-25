@@ -16,8 +16,14 @@ class RegistrationsController < Devise::RegistrationsController
 	end
 
 	def update
+		# required for settings form to submit when password is left blank
+		if params[:user][:password].blank?
+			params[:user].delete("password")
+			params[:user].delete("password_confirmation")
+		end
 		respond_to do |format|
 			if @user.update(user_params)
+				sign_in(@user, :bypass => true)
 				format.html { redirect_to @user, notice: 'User was successfully updated.' }
 				format.json { head :no_content }
 			else
