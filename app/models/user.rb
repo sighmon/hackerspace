@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
       :case_sensitive => false
     }
 
+  # Association for memberships
+  has_many :memberships
+
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
   attr_accessor :login

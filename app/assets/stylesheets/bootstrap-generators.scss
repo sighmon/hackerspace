@@ -1,0 +1,58 @@
+@import "bootstrap-variables";
+@import "bootstrap.scss";
+
+body {
+  padding-top: $navbar-height + 10px;
+}
+
+.page-header {
+  a.btn {
+    float: right;
+  }
+
+  a.btn + a.btn {
+    margin-right: 8px;
+  }
+}
+
+input[type="radio"], input[type="checkbox"] {
+  width: initial;
+  height: initial;
+  margin-top: 7px;
+}
+
+// ======================
+// Hackerspace edits here
+// ======================
+
+.navbar-default {
+  background-color:rgba(248,248,248,0.9);
+}
+
+.navbar-default .navbar-brand {
+  font-family: 'Helvetica';
+  letter-spacing: -0.5px;
+  color: #000000;
+}
+
+.navbar-btn {
+  margin-left: 5px;
+}
+
+.home-logo {
+
+}
+
+.jumbotron h1 {
+  font-size: 34px;
+}
+
+.jumbotron .lead {
+  font-size: 18px;
+}
+
+footer {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e5e5;
+}

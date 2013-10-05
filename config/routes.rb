@@ -1,5 +1,7 @@
 Hackerspace::Application.routes.draw do
 
+  resources :memberships
+
   resources :pages
 
   devise_for :users, :controllers => { :registrations => "registrations" }

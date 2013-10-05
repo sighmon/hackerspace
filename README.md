@@ -12,3 +12,4 @@ Stay tuned.
 
 * Ruby 2.0.0
 * Rails 4.0.0
+* Twitter Bootstrap 3

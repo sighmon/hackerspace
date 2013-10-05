@@ -20,3 +20,8 @@ $ rails generate migration add_username_to_users username:string
 $ rails g controller Registrations
 
 $ rails g scaffold page title:string permalink:string:index body:text
+
+$ rails generate bootstrap:install -f
+For bootstrap generators
+
+$ rails g scaffold membership user_id:integer valid_from:datetime duration:integer
