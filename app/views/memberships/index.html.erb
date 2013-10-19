@@ -5,26 +5,67 @@
       New Membership
     <% end %>
   <% end %>
-  <h1>Listing memberships</h1>
+  <h1>Buy a membership</h1>
 </div>
 
-<div class="table-responsive">
-  <table class="table table-striped table-bordered table-hover">
-    <thead>
-      <tr>
-        <th>User</th>
-        <th>Valid from</th>
-        <th>Duration</th>
-        <% if user_signed_in? and current_user.is_admin? %><th class="admin-column">Admin</th><% end %>
-      </tr>
-    </thead>
+<%= form_for(@membership, :url => { :action => "express" }, :method => :get) do |f| %>
 
-    <tbody>
-      <%= content_tag_for(:tr, @memberships) do |membership| %>
-        <td><%= membership.user.username %> (<%= membership.user_id %>)</td>
-        <td><%= membership.valid_from.strftime("%d %B, %Y") %></td>
-        <td><%= membership.duration %></td>
-        <% if user_signed_in? and current_user.is_admin? %>
+  <div class="row membership-options">
+    <div class="col-xs-6 col-md-4">
+      <div class="membership-option">
+        <%= f.submit "Buy", :class => 'btn btn-default pull-right', :name => 'one_year_recurring' %>
+        <h2>1 year recurring</h2>
+        <h3>$00.00 <span>($00.00 concession)</span></h3>
+        <p>A membership to Hackerspace Adelaide that automatically gets renewed each year.</p>
+      </div>
+    </div>
+    <div class="col-xs-6 col-md-4">
+      <div class="membership-option">
+        <%= f.submit "Buy", :class => 'btn btn-default pull-right', :name => 'one_year' %>
+        <h2>1 year</h2>
+        <h3>$00.00 <span>($00.00 concession)</span></h3>
+        <p><%= check_box_tag(:concession) %>
+        <%= label_tag(:concession, "Concession") %></p>
+        <p>A one year membership to Hackerspace Adelaide.</p>
+      </div>
+    </div>
+    <div class="col-xs-6 col-md-4">
+      <div class="membership-option">
+        <%= f.submit "Buy", :class => 'btn btn-default pull-right', :name => 'six_month_recurring' %>
+        <h2>6 month recurring</h2>
+        <h3>$00.00 <span>($00.00 concession)</span></h3>
+        <p>A membership to Hackerspace Adelaide that automatically gets renewed every six months.</p>
+      </div>
+    </div>
+    <div class="col-xs-6 col-md-4">
+      <div class="membership-option">
+        <%= f.submit "Buy", :class => 'btn btn-default pull-right', :name => 'six_month' %>
+        <h2>6 month</h2>
+        <h3>$00.00 <span>($00.00 concession)</span></h3>
+        <p>A six month membership to Hackerspace Adelaide.</p>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+
+<% if user_signed_in? and current_user.is_admin? %>
+  <div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Valid from</th>
+          <th>Duration</th>
+          <th class="admin-column">Admin</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= content_tag_for(:tr, @memberships) do |membership| %>
+          <td><%= membership.user.username %> (<%= membership.user_id %>)</td>
+          <td><%= membership.valid_from.strftime("%d %B, %Y") %></td>
+          <td><%= membership.duration %></td>
           <td class="admin-column">
             <div class="btn-group">
               <%= link_to 'Show', membership, :class => 'btn btn-default btn-sm' %> 
@@ -33,7 +74,7 @@
             </div>
           </td>
         <% end %>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </tbody>
+    </table>
+  </div>
+<% end %>

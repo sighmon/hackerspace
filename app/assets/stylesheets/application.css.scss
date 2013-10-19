@@ -20,3 +20,34 @@
  .dropdown-menu {
  	margin-top: -9px !important;
  }
+
+ .membership-options {
+
+ }
+
+ .membership-option {
+ 	padding: 1em;
+ 	margin-bottom: 2em;
+ 	background-color: #F9F9F9;
+ 	border-radius: 3px;
+ }
+
+ .membership-option h2 {
+ 	margin-top: 0px;
+ 	font-size: 1.6em;
+ }
+
+ .membership-option h3 {
+ 	margin-top: 0px;
+ 	font-size: 1.2em;
+ 	color: #7D7D7D;
+ }
+
+ .membership-option h3 span {
+ 	font-weight: normal;
+ 	font-size: 0.8em;
+ }
+
+ .membership-option + .membership-option {
+ 	margin-right: 1em;
+ }

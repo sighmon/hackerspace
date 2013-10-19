@@ -1,6 +1,10 @@
 Hackerspace::Application.routes.draw do
 
-  resources :memberships
+  resources :memberships do
+    new do
+      get :express
+    end
+  end
 
   resources :pages
 

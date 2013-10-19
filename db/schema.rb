@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131005061124) do
+ActiveRecord::Schema.define(version: 20131019072742) do
 
   create_table "memberships", force: true do |t|
     t.integer  "user_id"
@@ -19,6 +19,23 @@ ActiveRecord::Schema.define(version: 20131005061124) do
     t.integer  "duration"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "express_token"
+    t.string   "express_payer_id"
+    t.datetime "purchase_date"
+    t.string   "paypal_payer_id"
+    t.string   "paypal_email"
+    t.string   "paypal_first_name"
+    t.string   "paypal_last_name"
+    t.string   "paypal_profile_id"
+    t.string   "paypal_street1"
+    t.string   "paypal_street2"
+    t.string   "paypal_city_name"
+    t.string   "paypal_state_or_province"
+    t.string   "paypal_country_name"
+    t.string   "paypal_country_code"
+    t.string   "paypal_postal_code"
+    t.integer  "price_paid"
+    t.boolean  "concession"
   end
 
   create_table "pages", force: true do |t|
@@ -45,6 +62,7 @@ ActiveRecord::Schema.define(version: 20131005061124) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
+    t.boolean  "admin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

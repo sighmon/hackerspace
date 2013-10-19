@@ -1,38 +1,100 @@
-<%= form_for(@membership, :html => { :class => "form-horizontal" }) do |f| %>
-  <% if @membership.errors.any? %>
-    <div class="alert alert-danger alert-dismissable">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <h4><%= pluralize(@membership.errors.count, "error") %> prohibited this membership from being saved:</h4>
+<% if @user.is_admin? %>
 
-      <ul>
-      <% @membership.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <%= form_for(@membership, :html => { :class => "form-horizontal" }) do |f| %>
+    <% if @membership.errors.any? %>
+      <div class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h4><%= pluralize(@membership.errors.count, "error") %> prohibited this membership from being saved:</h4>
+
+        <ul>
+        <% @membership.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :user_id, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-10">
+        <%= f.number_field :user_id, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :valid_from, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-10">
+        <%= f.datetime_select :valid_from, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :duration, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-10">
+        <%= f.number_field :duration, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-offset-2 col-lg-10">
+        <%= f.submit :class => "btn btn-primary" %>
+      </div>
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :user_id, :class => "col-lg-2 control-label" %>
-    <div class="col-lg-10">
-      <%= f.number_field :user_id, :class => "form-control" %>
+<% elsif @cancel_membership %>
+
+  <% if @user.has_membership? %>
+    <dl class="dl-horizontal">
+      <dt>Expiry date:</dt> 
+    <% begin %>
+      <dd><%= @user.expiry_date.strftime("%e %B, %Y") %></dd>
+    <% rescue NoMethodError %>
+      <dd>No current membership.</dd>
+    <% end %>
+    </dl>
+  <% end %>
+
+  <%= form_for(@membership) do |f| %>
+
+    <h3>Are you sure you want to cancel your membership?</h3>
+    <dl class="dl-horizontal">
+      <dt><%= radio_button_tag 'cancel', 'true', 'false' %></dt>
+      <dd>Yes, I'm sure.</dd>
+      <dt><%= radio_button_tag 'cancel', 'false', 'true' %></dt>
+      <dd>No, I'm not really sure.</dd>
+    
+    <div class="form-actions">
+      <%= f.button :submit, :class => 'btn btn-danger' %>
+      <%= link_to "Back", user_path(@user), :class => 'btn btn-default' %>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :valid_from, :class => "col-lg-2 control-label" %>
-    <div class="col-lg-10">
-      <%= f.datetime_select :valid_from, :class => "form-control" %>
+  <% end %>
+
+<% elsif @has_token %>
+
+  <%= form_for(@membership, :html => { :class => "form-horizontal" }) do |f| %>
+  
+    <dl class="dl-horizontal">
+      <dt><strong>Name:</strong></dt>
+      <dd><%= session[:express_first_name] %> <%= session[:express_last_name] %></dd>
+    <% if session[:express_autodebit] %>
+      <dt><strong>Debit every:</strong></dt>
+      <dd><%= session[:express_purchase_membership_duration] %> months</dd>
+      <dt><strong>Debit amount:</strong></dt>
+      <dd>$<%= number_with_precision((session[:express_purchase_price] / 100), :precision => 2) %></dd>
+    <% else %>
+      <dt><strong>membership:</strong></dt>
+      <dd><%= session[:express_purchase_membership_duration] %> months</dd>
+      <dt><strong>Amount:</strong></dt>
+      <dd>$<%= number_with_precision((session[:express_purchase_price] / 100), :precision => 2) %></dd>
+    <% end %>
+    </dl>
+    
+    <div class="form-actions">
+      <%= f.submit "Complete your purchase", :class => 'btn btn-success' %>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :duration, :class => "col-lg-2 control-label" %>
-    <div class="col-lg-10">
-      <%= f.number_field :duration, :class => "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10">
-      <%= f.submit :class => "btn btn-primary" %>
-    </div>
-  </div>
+
+  <% end %>
+
+<% else %>
+
+  <p>Uh oh, you don't have a PayPal token. Panic!</p>
+
 <% end %>

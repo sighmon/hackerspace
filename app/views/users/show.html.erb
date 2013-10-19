@@ -1,2 +1,42 @@
-<h1><%= @user.username %></h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="page-header">
+	<h1><%= @user.username %></h1>
+	<p>Your user profile.</p>
+</div>
+
+<dl class="dl-horizontal">
+	<% if current_user == @user %>
+		<dt><strong>Account type:</strong></dt>
+		<dd><%= @user.user_type %></dd>
+		<% if @user.has_membership? || @user.membership_lapsed? || @user.user_type == "Admin" %>
+			<dt><strong>Expiry date:</strong></dt>
+			<dd><% begin %>
+				<%= @user.expiry_date.strftime("%e %B, %Y") %>
+			<% rescue NoMethodError %>
+				No current membership.
+			<% end %></dd>
+		<% end %>
+		<% if @user.has_membership? and @user.is_recurring? %>
+			<dt></dt>
+			<dd>(Automatic renewal)</dd>
+			<dt></dt>
+			<!-- TODO: finish membership cancelling -->
+			<dd><% link_to "Cancel my membership", edit_membership_path(@user.recurring_membership), :class => 'btn btn-danger' %></dd>
+		<% elsif @user.has_membership? %>
+		<dt></dt>
+		<dd><%= link_to "Extend my membership", memberships_path, :class => 'btn btn-default' %> 
+			<!-- TODO: finish membership cancelling -->
+			<% link_to "Cancel my membership", edit_membership_path(@user.last_membership), :class => 'btn btn-danger' %></dd>
+		<% elsif @user.membership_lapsed? %>
+		<dt></dt>
+		<dd><%= link_to "Renew my membership", memberships_path, :class => 'btn btn-success' %></dd>
+		<% else %>
+		<dt></dt>
+		<dd><%= link_to "Subscribe", memberships_path, :class => 'btn btn-success' %></dd>
+		<% end %>
+	<% end %>
+</dl>
+
+<% if current_user.is_admin? %>
+	<h3>Memberships</h3>
+	<%= memberships_as_table(@user.memberships) %>
+<% end %>

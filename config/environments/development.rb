@@ -29,4 +29,15 @@ Hackerspace::Application.configure do
 
   # Required by Devise for mailing.
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  # ActiveMerchant setup for PayPal
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+    paypal_options = {
+      :login => ENV["PAYPAL_SANDBOX_LOGIN"],
+      :password => ENV["PAYPAL_SANDBOX_PASSWORD"],
+      :signature => ENV["PAYPAL_SANDBOX_SIGNATURE"]
+    }
+    ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
+  end
 end

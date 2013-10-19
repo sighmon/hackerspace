@@ -25,3 +25,13 @@ $ rails generate bootstrap:install -f
 For bootstrap generators
 
 $ rails g scaffold membership user_id:integer valid_from:datetime duration:integer
+
+$ rails g migration add_express_token_to_memberships express_token:string express_payer_id:string
+
+$ rails g migration add_purchase_date_to_memberships purchase_date:datetime
+
+$ rails g migration add_paypal_details_to_memberships paypal_payer_id:string paypal_email:string paypal_first_name:string paypal_last_name:string paypal_profile_id:string paypal_street1:string paypal_street2:string paypal_city_name:string paypal_state_or_province:string paypal_country_name:string paypal_country_code:string paypal_postal_code:string price_paid:integer concession:boolean
+
+$ rails g migration add_admin_to_users admin:boolean
+
+TODO: Recurring memberships

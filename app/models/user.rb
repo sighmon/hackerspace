@@ -28,13 +28,55 @@ class User < ActiveRecord::Base
   end
 
   def is_admin?
-  	# TODO: add admin flag to Users
-  	return true
+  	return self.admin
+  end
+
+  def expiry_date
+    # FIXME: check for cancelled memberships
+    return self.memberships.collect{|s| s.expiry_date}.sort.last
   end
 
   def has_membership?
-  	# TODO: write code to test for a current membership
-  	return false
+  	return membership_valid?
+  end
+
+  def membership_valid?
+    return self.memberships.collect{|s| s.is_current?}.include?(true)
+  end
+
+  def membership_lapsed?
+    return ( not self.memberships.empty? and not self.membership_valid? )
+  end
+
+  def is_recurring?
+    # TODO: need to differentiate between the first recurring memberships and the paypal IPN recurrances.
+    return self.memberships.collect{|s| s.is_recurring?}.include?(true)
+  end
+
+  def recurring_subscription
+    return self.memberships.select{|s| s.is_recurring?}.sort!{|a,b| a.expiry_date <=> b.expiry_date}.last
+  end
+
+  def last_membership
+    return self.current_memberships.sort!{|a,b| a.expiry_date <=> b.expiry_date}.last
+  end
+
+  def current_memberships
+    return self.memberships.select{|s| s.is_current?}
+  end
+
+  def user_type
+    t = "Guest"
+    if admin?
+      t = "Admin"
+    elsif has_membership?
+      t = "Member"
+    end
+    "#{t}"
+  end
+
+  def guest?
+    return id.nil?
   end
 
 end

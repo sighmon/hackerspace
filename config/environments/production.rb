@@ -77,4 +77,15 @@ Hackerspace::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # ActiveMerchant setup for PayPal
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :production
+    paypal_options = {
+      :login => ENV["PAYPAL_LOGIN"],
+      :password => ENV["PAYPAL_PASSWORD"],
+      :signature => ENV["PAYPAL_SIGNATURE"]
+    }
+    ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
+  end
 end
