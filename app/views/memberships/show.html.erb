@@ -1,6 +1,6 @@
 <div class="page-header">
   <%= link_to memberships_path, :class => 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
+    <span class="glyphicon glyphicon-chevron-left"></span>
     Back
   <% end %>
   <%= link_to edit_membership_path(@membership), :class => 'btn btn-primary' do %>
@@ -12,10 +12,10 @@
 
 <dl class="dl-horizontal">
   <dt>User:</dt>
-  <dd><%= @membership.user_id %></dd>
+  <dd><%= @membership.user.username %> (<%= @membership.user_id %>)</dd>
 
   <dt>Valid from:</dt>
-  <dd><%= @membership.valid_from %></dd>
+  <dd><%= @membership.valid_from.strftime("%d %B, %Y") %></dd>
 
   <dt>Duration:</dt>
   <dd><%= @membership.duration %></dd>

@@ -11,3 +11,12 @@
  *= require_self
  *= require_tree .
  */
+
+ .admin-column {
+ 	width: 200px;
+ 	text-align: center;
+ }
+
+ .dropdown-menu {
+ 	margin-top: -9px !important;
+ }
