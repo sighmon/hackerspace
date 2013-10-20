@@ -36,7 +36,7 @@
 	<% end %>
 </dl>
 
-<% if current_user.is_admin? %>
+<% if current_user and current_user.is_admin? %>
 	<h3>Memberships</h3>
 	<%= memberships_as_table(@user.memberships) %>
 <% end %>

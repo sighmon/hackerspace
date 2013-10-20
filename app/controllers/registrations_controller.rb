@@ -6,10 +6,13 @@ class RegistrationsController < Devise::RegistrationsController
 		@user = User.new(user_params)
 		respond_to do |format|
 			if @user.save
+				sign_in @user
 				format.html { redirect_to @user, notice: 'User was successfully created.' }
 				format.json { head :no_content }
 			else
-				format.html { render action: 'create' }
+				logger.info @user.errors
+				raise 'cant create'
+				format.html { render action: 'new' }
 				format.json { render json: @user.errors, status: :unprocessable_entity }
 			end
 		end
