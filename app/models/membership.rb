@@ -1,5 +1,7 @@
 class Membership < ActiveRecord::Base
 
+	include ActionView::Helpers::NumberHelper
+
 	belongs_to :user
 
 	validates_presence_of :valid_from, :duration
@@ -10,7 +12,7 @@ class Membership < ActiveRecord::Base
 		concession = options[:concession] or false
 
 		# Base price for 1 month
-		price = 1000
+		price = 4000
 		
 		if autodebit
 			case duration
@@ -56,6 +58,10 @@ class Membership < ActiveRecord::Base
 
 	def was_recurring?
 		return (not self.paypal_profile_id.blank?)
+	end
+
+	def pretty_price_paid
+		return self.price_paid ? "$#{number_with_precision((self.price_paid / 100), :precision => 2)}" : "Free"
 	end
 
 end

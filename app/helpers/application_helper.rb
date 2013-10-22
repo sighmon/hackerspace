@@ -35,4 +35,8 @@ module ApplicationHelper
 			return raw table
 		end
 	end
+
+	def pretty_membership_price(duration, options = {})
+		return number_with_precision((Membership.calculate_membership_price(duration, options) / 100), :precision => 2)
+	end
 end

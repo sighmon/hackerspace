@@ -1,9 +1,14 @@
 class MembershipsController < ApplicationController
   before_action :set_membership, only: [:show, :edit, :update, :destroy]
 
-  def express
+  before_filter :authenticate_user!, except: [:index]
+  before_filter :admin_check, except: [:index, :express, :new, :create]
 
-    # authorize! :update, Membership
+  def admin_check
+    redirect_to root_path unless current_user.is_admin?
+  end
+
+  def express
     
     @autodebit = false
     @concession = false

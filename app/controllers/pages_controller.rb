@@ -1,6 +1,13 @@
 class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy]
 
+  before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :admin_check, except: [:index, :show]
+
+  def admin_check
+    redirect_to root_path unless current_user.is_admin?
+  end
+
   # GET /pages
   # GET /pages.json
   def index

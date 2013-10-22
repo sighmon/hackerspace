@@ -22,10 +22,13 @@
 		
 			<div class="collapse navbar-collapse navbar-ex1-collapse">
 				<ul class="nav navbar-nav">
-					<li><%= link_to 'Membership', page_path('membership') %></li>
+					<% if (current_user and not current_user.has_membership?) or not user_signed_in? %>
+						<li><%= link_to 'Membership', memberships_path %></li>
+					<% end %>
 					<li><%= link_to 'Blog', 'http://hackerspace-adelaide.org.au/blog' %></li>
 					<li><%= link_to 'Wiki', 'http://hackerspace-adelaide.org.au/wiki' %></li>
 					<li><%= link_to 'Google Group', 'https://groups.google.com/forum/#!forum/hackerspace-adelaide' %></li>
+					<li><%= link_to 'About', page_path('about') %></li>
 				</ul>
 				<!-- START right user navigation -->
 				<ul class="nav navbar-nav navbar-right">
