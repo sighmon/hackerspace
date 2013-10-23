@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131019072742) do
+ActiveRecord::Schema.define(version: 20131023093711) do
 
   create_table "memberships", force: true do |t|
     t.integer  "user_id"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20131019072742) do
     t.string   "paypal_postal_code"
     t.integer  "price_paid"
     t.boolean  "concession"
+    t.integer  "refund"
+    t.datetime "cancellation_date"
   end
 
   create_table "pages", force: true do |t|
@@ -47,6 +49,16 @@ ActiveRecord::Schema.define(version: 20131019072742) do
   end
 
   add_index "pages", ["permalink"], name: "index_pages_on_permalink"
+
+  create_table "payment_notifications", force: true do |t|
+    t.text     "params"
+    t.string   "status"
+    t.string   "transaction_id"
+    t.string   "transaction_type"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

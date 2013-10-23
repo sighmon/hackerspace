@@ -2,10 +2,10 @@ class MembershipsController < ApplicationController
   before_action :set_membership, only: [:show, :edit, :update, :destroy]
 
   before_filter :authenticate_user!, except: [:index]
-  before_filter :admin_check, except: [:index, :express, :new, :create]
+  before_filter :user_check, except: [:index, :new, :express]
 
-  def admin_check
-    redirect_to root_path unless current_user.is_admin?
+  def user_check
+    redirect_to root_path unless current_user.is_admin? or (current_user == Membership.find(params[:id]).user)
   end
 
   def express
@@ -57,6 +57,9 @@ class MembershipsController < ApplicationController
         :currency     => 'AUD'
       })
       response = ppr.checkout
+      logger.info "XXXXXXXXXXXX"
+      logger.info response.to_json
+      logger.info "XXXXXXXXXXXX"
       redirect_to response.checkout_url if response.valid?
     else
       if @concession == true
@@ -176,7 +179,7 @@ class MembershipsController < ApplicationController
               response_create = ppr.create_recurring_profile
               if not(response_create.profile_id.blank?)
                   @membership.paypal_profile_id = response_create.profile_id
-                  # If successful, update the user's subscription date.
+                  # If successful, update the user's membership date.
                   # update_membership_expiry_date
                   # Reset refund if they had one in the past
                   @membership.refund = nil
@@ -202,7 +205,7 @@ class MembershipsController < ApplicationController
           response = EXPRESS_GATEWAY.purchase(session[:express_purchase_price], express_purchase_options)
 
           if response.success?
-              # If successful, update the user's subscription date.
+              # If successful, update the user's membership date.
               # update_membership_expiry_date
               logger.info "Paypal is happy!"
               save_paypal_data_to_membership_model
@@ -238,13 +241,46 @@ class MembershipsController < ApplicationController
 
     # TODO: Handle users cancelling their membership
 
+    @user = current_user
+    @membership = Membership.find(params[:id])
+    cancel_complete = false
+
+    if params[:cancel] == 'true'
+        if @membership.is_recurring?
+            # user has a recurring membership
+            if cancel_recurring_membership
+                # Find all recurring memberships and cancel them.
+                all_memberships = @user.recurring_memberships(@membership.paypal_profile_id)
+                all_memberships.each do |s|
+                    s.expire_membership
+                    s.save
+                    logger.info "Refund for membership id: #{s.id} is #{s.refund} cents."
+                    logger.info "Expired membership id: #{s.id} - cancel date: #{s.cancellation_date}"
+                end
+                cancel_complete = true
+            else 
+                # redirect_to user_path(@user), notice: "Sorry, we couldn't cancel your PayPal recurring membership, please try again later."
+                cancel_complete = false
+                logger.warn "Sorry, we couldn't cancel your PayPal recurring membership, please try again later."
+            end
+        else
+            # user has a normal membership
+            @membership.expire_membership
+            cancel_complete = true
+        end
+    else
+        # redirect_to user_path(@user), notice: "Not trying to cancel?"
+        cancel_complete = false
+        logger.warn "Somehow we weren't passed the cancel param."
+    end
+
     respond_to do |format|
-      if @membership.update(membership_params)
-        format.html { redirect_to @membership, notice: 'Membership was successfully updated.' }
+      if @membership.save
+        format.html { redirect_to @user, notice: 'Membership was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @membership.errors, status: :unprocessable_entity }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -267,10 +303,10 @@ class MembershipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def membership_params
-      params.require(:membership).permit(:user_id, :valid_from, :duration, :purchase_date)
+      params.require(:membership).permit(:user_id, :valid_from, :duration, :purchase_date, :cancellation_date, :refund)
     end
 
-    def cancel_recurring_subscription
+    def cancel_recurring_membership
       ppr = PayPal::Recurring.new(:profile_id => @membership.paypal_profile_id)
       response = ppr.cancel
       if response.success?

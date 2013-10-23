@@ -53,8 +53,19 @@ class User < ActiveRecord::Base
     return self.memberships.collect{|s| s.is_recurring?}.include?(true)
   end
 
-  def recurring_subscription
+  def recurring_membership
     return self.memberships.select{|s| s.is_recurring?}.sort!{|a,b| a.expiry_date <=> b.expiry_date}.last
+  end
+
+  def first_recurring_membership(profile)
+    logger.info("looking for membership with profile: #{profile}")
+    mem = self.memberships.select{|s| (s.paypal_profile_id == profile)}.sort!{|a,b| a.purchase_date <=> b.purchase_date}.first
+    if mem
+      logger.info("found #{mem.id}")
+    else
+      logger.info("not found")
+    end
+    mem
   end
 
   def last_membership

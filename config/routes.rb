@@ -1,5 +1,7 @@
 Hackerspace::Application.routes.draw do
 
+  resource :payment_notifications, :only => [:create]
+  
   resources :memberships do
     new do
       get :express

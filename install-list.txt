@@ -34,4 +34,13 @@ $ rails g migration add_paypal_details_to_memberships paypal_payer_id:string pay
 
 $ rails g migration add_admin_to_users admin:boolean
 
+$ rails g model PaymentNotification params:text status:string transaction_id:string transaction_type:string user_id:integer
+
+$ rails g controller PaymentNotifications create
+
+IPN Ping test
+$ curl -d "txn_id=BA2N9WTKFCS9A&recurring=1&period3=3&txn_type=subscr_payment&invoice=2&mc_gross=1800&payment_status=Completed" http://localhost:3000/payment_notifications
+
+$ rails g migration add_refund_and_cancellation_date_to_memberships refund:integer cancellation_date:datetime
+
 TODO: Recurring memberships

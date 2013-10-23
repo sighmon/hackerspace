@@ -3,9 +3,11 @@
     <span class="glyphicon glyphicon-chevron-left"></span>
     Back
   <% end %>
-  <%= link_to edit_membership_path(@membership), :class => 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    Edit
+  <% if current_user and current_user.is_admin? %>
+    <%= link_to edit_membership_path(@membership), :class => 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-pencil"></span>
+      Edit
+    <% end %>
   <% end %>
   <h1>Show membership</h1>
 </div>
@@ -18,6 +20,12 @@
   <dd><%= @membership.valid_from.strftime("%d %B, %Y") %></dd>
 
   <dt>Duration:</dt>
-  <dd><%= @membership.duration %></dd>
+  <dd><%= @membership.duration %> months</dd>
+
+  <dt>Price paid:</dt>
+  <dd><%= @membership.pretty_price_paid %></dd>
+
+  <dt>Cancelled?</dt>
+  <dd><%= @membership.cancellation_date ? "Yes" : "No" %></dd>
 
 </dl>

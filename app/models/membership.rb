@@ -53,7 +53,7 @@ class Membership < ActiveRecord::Base
 	end
 
 	def expiry_date
-		return (valid_from + duration.months)
+		return (cancellation_date or (valid_from + duration.months))
 	end
 
 	def was_recurring?
@@ -62,6 +62,26 @@ class Membership < ActiveRecord::Base
 
 	def pretty_price_paid
 		return self.price_paid ? "$#{number_with_precision((self.price_paid / 100), :precision => 2)}" : "Free"
+	end
+
+	def calculate_refund
+		# TODO: Write autodebit renewal after we've implemented it.
+		# FIXME: write the logic to calculate refunds properly.
+		self.refund = [0,(1-(used_days/total_days))*self.price_paid].max.floor
+		logger.warn "Refund of #{self.refund} cents due."
+	end
+
+	def used_days
+		return [0,(DateTime.now - self.valid_from.to_datetime).to_f].max
+	end
+
+	def total_days
+		return (self.expiry_date.to_datetime - self.valid_from.to_datetime).to_f
+	end
+
+	def expire_membership
+		self.calculate_refund
+		self.cancellation_date = DateTime.now
 	end
 
 end

@@ -61,6 +61,7 @@
           <th>Duration</th>
           <th>Recurring</th>
           <th>Price paid</th>
+          <th>Cancelled?</th>
           <th class="admin-column">Admin</th>
         </tr>
       </thead>
@@ -72,6 +73,7 @@
           <td><%= membership.duration %></td>
           <td><%= membership.is_recurring? %></td>
           <td><%= membership.pretty_price_paid %></td>
+          <td><%= membership.cancellation_date ? membership.cancellation_date.strftime("%d %B, %Y") : "No" %></td>
           <td class="admin-column">
             <div class="btn-group">
               <%= link_to 'Show', membership, :class => 'btn btn-default btn-sm' %> 
