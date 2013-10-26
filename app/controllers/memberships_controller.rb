@@ -16,15 +16,15 @@ class MembershipsController < ApplicationController
     if params[:one_year_recurring]
       @autodebit = true
       @express_purchase_membership_duration = 12
-    elsif params[:six_month_recurring]
+    elsif params[:three_month_recurring]
       @autodebit = true
-      @express_purchase_membership_duration = 6
+      @express_purchase_membership_duration = 3
     end
 
     if params[:one_year]
       @express_purchase_membership_duration = 12
-    elsif params[:six_month]
-      @express_purchase_membership_duration = 6
+    elsif params[:three_month]
+      @express_purchase_membership_duration = 3
     end
 
     if params[:concession] == "1"

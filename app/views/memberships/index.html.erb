@@ -29,18 +29,18 @@
     </div>
     <div class="col-xs-6 col-md-4">
       <div class="membership-option">
-        <%= f.submit "Buy", :class => 'btn btn-default pull-right', :name => 'six_month_recurring' %>
-        <h2>6 month recurring</h2>
-        <h3>$<%= pretty_membership_price(6, :autodebit => true) %> <span>($<%= pretty_membership_price(6, {:concession => true, :autodebit => true}) %> concession)</span></h3>
-        <p>A membership to Hackerspace Adelaide that automatically gets renewed every six months.</p>
+        <%= f.submit "Buy", :class => 'btn btn-default pull-right', :name => 'three_month_recurring' %>
+        <h2>3 month recurring</h2>
+        <h3>$<%= pretty_membership_price(3, :autodebit => true) %> <span>($<%= pretty_membership_price(3, {:concession => true, :autodebit => true}) %> concession)</span></h3>
+        <p>A membership to Hackerspace Adelaide that automatically gets renewed every three months.</p>
       </div>
     </div>
     <div class="col-xs-6 col-md-4">
       <div class="membership-option">
-        <%= f.submit "Buy", :class => 'btn btn-default pull-right', :name => 'six_month' %>
-        <h2>6 month</h2>
-        <h3>$<%= pretty_membership_price(6) %> <span>($<%= pretty_membership_price(6, :concession => true) %> concession)</span></h3>
-        <p>A six month membership to Hackerspace Adelaide.</p>
+        <%= f.submit "Buy", :class => 'btn btn-default pull-right', :name => 'three_month' %>
+        <h2>3 month</h2>
+        <h3>$<%= pretty_membership_price(3) %> <span>($<%= pretty_membership_price(3, :concession => true) %> concession)</span></h3>
+        <p>A three month membership to Hackerspace Adelaide.</p>
       </div>
     </div>
   </div>

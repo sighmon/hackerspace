@@ -12,26 +12,26 @@ class Membership < ActiveRecord::Base
 		concession = options[:concession] or false
 
 		# Base price for 1 month
-		price = 4000
+		price = 40000/12.00
 		
 		if autodebit
 			case duration
-			when 6
-				price = price * duration * 0.8
+			when 3
+				price = (price * duration * 1.4 * 0.8)
 			when 12
-				price = price * duration * 0.8
+				price = (price * duration * 0.8)
 			end
 		else
 			case duration
-			when 6
-				price = price * duration
+			when 3
+				price = (price * duration * 1.4)
 			when 12
-				price = price * duration
+				price = (price * duration)
 			end
 		end
 		if concession
 			case duration
-			when 6
+			when 3
 				price *= 0.5
 			when 12
 				price *= 0.5
