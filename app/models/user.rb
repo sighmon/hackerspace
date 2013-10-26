@@ -68,6 +68,11 @@ class User < ActiveRecord::Base
     mem
   end
 
+  def recurring_memberships(recurring_payment_id)
+    # Return all the subscriptions that have this paypal profile id
+    return self.memberships.select{|s| (s.paypal_profile_id == recurring_payment_id)}.sort!{|a,b| a.purchase_date <=> b.purchase_date}
+  end
+
   def last_membership
     return self.current_memberships.sort!{|a,b| a.expiry_date <=> b.expiry_date}.last
   end

@@ -2,7 +2,7 @@ class MembershipsController < ApplicationController
   before_action :set_membership, only: [:show, :edit, :update, :destroy]
 
   before_filter :authenticate_user!, except: [:index]
-  before_filter :user_check, except: [:index, :new, :express]
+  before_filter :user_check, except: [:index, :new, :express, :create]
 
   def user_check
     redirect_to root_path unless current_user.is_admin? or (current_user == Membership.find(params[:id]).user)
@@ -60,6 +60,7 @@ class MembershipsController < ApplicationController
       logger.info "XXXXXXXXXXXX"
       logger.info response.to_json
       logger.info "XXXXXXXXXXXX"
+      # raise "uh oh"
       redirect_to response.checkout_url if response.valid?
     else
       if @concession == true
@@ -157,8 +158,12 @@ class MembershipsController < ApplicationController
             :description => session[:express_purchase_description]
           })
           response_request = ppr.request_payment
+          logger.info "XXXXXXXXXXXX"
+          logger.info response_request.to_json
+          # raise "Response denied"
+          logger.info "XXXXXXXXXXXX"
 
-          if response_request.approved? and response_request.completed?
+          if response_request.approved?# and response_request.completed?
               # 2. create profile & save recurring profile token
               # Set :period to :daily and :frequency to 1 for testing IPN every minute
               ppr = PayPal::Recurring.new({
@@ -199,6 +204,7 @@ class MembershipsController < ApplicationController
               # Why didn't this work? Log it.
               logger.warn "request_payment failed: #{response_request.params}"
               notice_message_for_user = response_request.params[:L_LONGMESSAGE0]
+              raise "Request payment failed"
           end
       else
           # It's a single purchase so make the PayPal purchase
@@ -228,7 +234,7 @@ class MembershipsController < ApplicationController
         format.json { render action: 'show', status: :created, location: @membership }
       else
         logger.info "Uh oh, couldn't save......."
-        # raise "couldn't save."
+        raise "couldn't save."
         format.html { render action: 'index', notice: @membership.errors }
         format.json { render json: @membership.errors, status: :unprocessable_entity }
       end
@@ -308,13 +314,16 @@ class MembershipsController < ApplicationController
 
     def cancel_recurring_membership
       ppr = PayPal::Recurring.new(:profile_id => @membership.paypal_profile_id)
-      response = ppr.cancel
-      if response.success?
+      cancel_response = ppr.cancel
+      logger.info cancel_response.to_json
+      # raise "Cancel response"
+      if cancel_response.success?
         # Don't nil out paypal recurring profile.
         # @membership.paypal_profile_id = nil
         session[:express_autodebit] = false
         return true
       else
+        logger.info cancel_response.to_json
         return false
       end
     end

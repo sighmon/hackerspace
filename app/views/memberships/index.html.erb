@@ -68,10 +68,10 @@
 
       <tbody>
         <%= content_tag_for(:tr, @memberships) do |membership| %>
-          <td><%= membership.user.username %> (<%= membership.user_id %>)</td>
+          <td><%= link_to membership.user.username, user_path(membership.user) %> (<%= membership.user_id %>)</td>
           <td><%= membership.valid_from.strftime("%d %B, %Y") %></td>
           <td><%= membership.duration %></td>
-          <td><%= membership.is_recurring? %></td>
+          <td><%= membership.is_recurring? ? membership.paypal_profile_id : "No" %></td>
           <td><%= membership.pretty_price_paid %></td>
           <td><%= membership.cancellation_date ? membership.cancellation_date.strftime("%d %B, %Y") : "No" %></td>
           <td class="admin-column">

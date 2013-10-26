@@ -87,5 +87,14 @@ Hackerspace::Application.configure do
       :signature => ENV["PAYPAL_SIGNATURE"]
     }
     ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
+
+    PayPal::Recurring.configure do |config|
+      #config.sandbox = true
+      config.sandbox = false
+      config.username = ENV["PAYPAL_LOGIN"]
+      config.password = ENV["PAYPAL_PASSWORD"]
+      config.signature = ENV["PAYPAL_SIGNATURE"]
+    end
+    
   end
 end

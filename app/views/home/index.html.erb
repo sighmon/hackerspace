@@ -4,7 +4,7 @@
 	<h1>Marketing stuff!</h1>
 	<p class="lead">This is where our amazing marketing spiel goes to entice people to want to give their everything to hackerspace.</p>
 	<% unless try(:current_user).try(:has_membership?) %>
-		<p><%= link_to 'Become a member!', page_path('membership'), class: 'btn btn-lg btn-success' %></p>
+		<p><%= link_to 'Become a member!', memberships_path, class: 'btn btn-lg btn-success' %></p>
 	<% end %>
 </div>
 
