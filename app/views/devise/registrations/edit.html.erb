@@ -9,6 +9,12 @@
   <div class="form-group"><%= f.label :username %><br />
   <%= f.email_field :username, :class => 'form-control' %></div>
 
+  <div class="form-group"><%= f.label :website %><br />
+  <%= f.text_field :website, placeholder: 'http://www.yoursite.com', :class => 'form-control' %></div>
+
+  <div class="form-group"><%= f.label :about %><br />
+  <%= f.text_area :about, placeholder: 'A little something about who you are.', :class => 'form-control' %></div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div class="form-group">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>

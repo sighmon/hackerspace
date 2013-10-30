@@ -17,9 +17,9 @@ class Membership < ActiveRecord::Base
 		if autodebit
 			case duration
 			when 3
-				price = (price * duration * 1.4 * 0.9)
+				price = (price * duration * 1.4)# * 0.9) # 10% discount
 			when 12
-				price = (price * duration * 0.9)
+				price = (price * duration)# * 0.9) # 10% discount
 			end
 		else
 			case duration
