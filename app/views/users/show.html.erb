@@ -30,19 +30,17 @@
 				No current membership.
 			<% end %></dd>
 		<% end %>
+		<dt></dt><dd>&nbsp;</dd>
 		<% if @user.has_membership? and @user.is_recurring? %>
 			<dt></dt>
 			<dd>(Automatic renewal)</dd>
-			<dt></dt><dd>&nbsp;</dd>
 			<dt></dt>
 			<dd><%= link_to "Cancel my membership", edit_membership_path(@user.recurring_membership), :class => 'btn btn-danger' %></dd>
 		<% elsif @user.has_membership? %>
-		<dt></dt><dd>&nbsp;</dd>
 		<dt></dt>
 		<dd><%= link_to "Extend my membership", memberships_path, :class => 'btn btn-default' %> 
 			<%= link_to "Cancel my membership", edit_membership_path(@user.last_membership), :class => 'btn btn-danger' %></dd>
 		<% elsif @user.membership_lapsed? %>
-		<dt></dt><dd>&nbsp;</dd>
 		<dt></dt>
 		<dd><%= link_to "Renew my membership", memberships_path, :class => 'btn btn-success' %></dd>
 		<% else %>
