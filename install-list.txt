@@ -44,3 +44,7 @@ $ curl -d "txn_id=BA2N9WTKFCS9A&recurring=1&period3=3&txn_type=subscr_payment&in
 $ rails g migration add_refund_and_cancellation_date_to_memberships refund:integer cancellation_date:datetime
 
 $ rails g migration add_website_and_about_to_users website:text about:text
+
+TODO: awesome 404/500 error pages.
+
+TODO: emails for new users and memberships.
