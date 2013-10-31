@@ -1,11 +1,17 @@
 <!-- Jumbotron -->
 <div class="jumbotron">
 	<%= image_tag "hackerspace-adelaide-logo.png", :alt => "Hackerspace Adelaide Membership website", :title => "Hackerspace Adelaide Membership website", :width => 200, :class => "home-logo" %>
-	<h1>Marketing stuff!</h1>
-	<p class="lead">This is where our amazing marketing spiel goes to entice people to want to give their everything to hackerspace.</p>
+	<h1>So you like electronics?</h1>
+	<p>Welcome to Hackerspace Adelaide, a place to work on robots, 3D printers, sound generators, ham radio, Arduino, Raspberry Pi, and any other software and hardware projects you can dream up. It's a friendly open environment where people can come who have no prior background in electronics and learn from others who've been doing it for years.</p>
 	<% unless try(:current_user).try(:has_membership?) %>
 		<p><%= link_to 'Become a member!', memberships_path, class: 'btn btn-lg btn-success' %></p>
 	<% end %>
+	<p>This is the membership website, where you can join and help support the growing community of <a href="http://en.wikipedia.org/wiki/Hacker_(hobbyist)">hackers</a>. But you don't need a membership to come along and play, just turn up to one of the sessions!</p>
+	<h2>Hack sessions</h2>
+	<p>Wednesday 6pm - 9pm<br>
+	Saturday 1pm - 4pm</p>
+	<p>Level 9, 80 King William Street, Adelaide.<br>
+	Call the number on the front glass doors and we'll let you in.</p>
 </div>
 
 <!-- Example row of columns -->
