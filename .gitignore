@@ -29,4 +29,8 @@
 
 # Guff
 00-*
+*.OLD
+
+# MYSQL stuff
+db/data.yml
 

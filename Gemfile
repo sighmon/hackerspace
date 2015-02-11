@@ -6,6 +6,12 @@ gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
+# To dump sqlite to mysql
+gem 'yaml_db'
+
+# Mysql
+gem 'mysql'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
