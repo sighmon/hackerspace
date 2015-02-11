@@ -11,7 +11,8 @@
  *= require_self
  *= require_tree .
  */
-
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
  .page-header {
  	margin-top: 20px !important;

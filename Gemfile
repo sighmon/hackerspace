@@ -23,7 +23,8 @@ gem 'coffee-rails', '>= 4.0.0'
 
 # Twitter Bootstrap 3
 # https://github.com/anjlab/bootstrap-rails
-gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :github => 'anjlab/bootstrap-rails'
+# gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :github => 'anjlab/bootstrap-rails'
+gem 'bootstrap-sass', '~> 3.3.3'
 
 # Active Merchant for PayPal payments
 gem 'activemerchant'

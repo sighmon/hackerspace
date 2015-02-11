@@ -15,5 +15,5 @@
 //= require turbolinks
 //= require_tree .
 
-//= require twitter/bootstrap
+//= require bootstrap-sprockets
 //= require retina_tag
