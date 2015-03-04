@@ -29,7 +29,7 @@ development:
   database: <%= ENV['MYSQL_DEVELOPMENT_DB_NAME'] %>
   pool: 5
   username: <%= ENV['MYSQL_DEVELOPMENT_USER'] %>
-  password:
+  password:<%= ENV['MYSQL_DEVELOPMENT_PASS'] %>
 
 test:
   adapter: mysql
