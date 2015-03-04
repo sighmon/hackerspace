@@ -184,7 +184,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-generators (~> 3.0)
   bootstrap-sass (~> 3.3.3)
-  coffee-rails (>= 4.0.0)
+  coffee-rails
   devise
   figaro
   jbuilder (~> 1.2)
