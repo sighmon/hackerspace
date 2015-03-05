@@ -24,7 +24,7 @@
 # NOW USING MYSQL
 
 development:
-  adapter: mysql
+  adapter: mysql2
   encoding: utf8
   database: <%= ENV['MYSQL_DEVELOPMENT_DB_NAME'] %>
   pool: 5
@@ -32,7 +32,7 @@ development:
   password: <%= ENV['MYSQL_DEVELOPMENT_PASS'] %>
 
 test:
-  adapter: mysql
+  adapter: mysql2
   encoding: utf8
   database: test
   pool: 5
@@ -40,7 +40,7 @@ test:
   password:
 
 production:
-  adapter: mysql
+  adapter: mysql2
   encoding: utf8
   database: <%= ENV['MYSQL_PRODUCTION_DB_NAME'] %>
   pool: 5
