@@ -34,3 +34,6 @@
 # MYSQL stuff
 db/data.yml
 
+# Passenger setup for the server
+config/setup_load_paths.rb
+
