@@ -54,3 +54,8 @@
 	<h3>Memberships</h3>
 	<%= memberships_as_table(@user.memberships) %>
 <% end %>
+
+<% if current_user and (current_user.is_admin? or current_user == @user) %>
+	<h3>Checkins</h3>
+	<%= checkins_as_table(@user.checkins) %>
+<% end %>

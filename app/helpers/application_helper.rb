@@ -38,6 +38,19 @@ module ApplicationHelper
 		end
 	end
 
+	def checkins_as_table(checkins)
+		if checkins.try(:empty?)
+			return "You haven't checked in yet!"
+		else
+			table = "<table class='table table-bordered purchases_as_table'><thead><tr><th>Checkin date</th></tr></thead><tbody>"
+			for checkin in checkins.reverse do
+				table += "<tr><td>#{link_to checkin.created_at.try(:strftime,"%d %B, %Y"), checkin_path(checkin)}</td>"
+			end
+			table += "</tbody></table>"
+			return raw table
+		end
+	end
+
 	def pretty_membership_price(duration, options = {})
 		return number_with_precision((Membership.calculate_membership_price(duration, options) / 100), :precision => 2)
 	end
