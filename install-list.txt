@@ -47,6 +47,8 @@ $ rails g migration add_website_and_about_to_users website:text about:text
 
 $ rails g migration add_nfc_atr_and_nfc_id_to_users nfc_atr:binary nfc_id:binary
 
+$ rails g scaffold checkin user_id:integer
+
 TODO: awesome 404/500 error pages.
 
 TODO: emails for new users and memberships.

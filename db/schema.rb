@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150314062837) do
+ActiveRecord::Schema.define(version: 20150318083349) do
+
+  create_table "checkins", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "memberships", force: :cascade do |t|
     t.integer  "user_id",                  limit: 4

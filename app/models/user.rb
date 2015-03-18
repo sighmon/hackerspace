@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
 
   # Association for memberships
   has_many :memberships
+  has_many :checkins
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'

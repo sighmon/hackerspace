@@ -1,5 +1,7 @@
 Hackerspace::Application.routes.draw do
 
+  resources :checkins
+
   resource :payment_notifications, :only => [:create]
   
   resources :memberships do
@@ -15,6 +17,7 @@ Hackerspace::Application.routes.draw do
   resources :users, :only => [:show]
 
   post 'lookup' => 'users#lookup'
+  post 'checkin' => 'users#checkin'
   
   get "home/index"
 
