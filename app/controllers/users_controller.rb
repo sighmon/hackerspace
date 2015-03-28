@@ -8,6 +8,24 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 	end
 
+	def register_card
+		@user = User.find(params[:user_id])
+		if @user
+			@user.nfc_atr = Base64.decode64(params[:atr])#.unpack('H*')
+			@user.nfc_id = Base64.decode64(params[:id])#.unpack('H*')
+
+			if @user.save
+				render json: user_hash(@user)
+			else
+				render json: nil
+			end
+
+		else
+			render json: nil
+		end
+
+	end
+
 	def lookup
 		@nfc_atr = Base64.decode64(params[:atr])#.unpack('H*')
 		@nfc_id = Base64.decode64(params[:id])#.unpack('H*')
@@ -53,7 +71,12 @@ class UsersController < ApplicationController
 	end
 
 	def user_hash(user)
-		{ :id => user.id, :username => user.username, :email => user.email, :joined => user.created_at, :checkins => user.checkins }
+		hash = { :id => user.id, :username => user.username, :email => user.email, :joined => user.created_at, :checkins => user.checkins }
+		if current_user && current_user.is_admin?
+			hash[:nfc_atr] = user.nfc_atr
+			hash[:nfc_id] = user.nfc_id
+		end
+		hash
 	end
 
 end

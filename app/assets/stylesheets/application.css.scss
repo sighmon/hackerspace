@@ -61,3 +61,29 @@
  .jumbotron {
  	margin-top: 1em;
  }
+
+ .session-now-on {
+ 	background-color: white;
+ 	padding: 1em;
+ 	border-radius: 3px;
+ 	margin-bottom: 1em;
+ }
+
+ .session-now-on h2, .session-now-on h3 {
+ 	margin: 0 0 0.2em 0;
+ }
+
+ .jumbotron .session-now-on h2 {
+ 	font-size: 1.5em;
+ }
+
+ .jumbotron .session-now-on h3 {
+ 	font-size: 1em;
+ 	color: #7D7D7D;
+ }
+
+ .jumbotron .session-now-on p {
+ 	font-size: 1em;
+ 	font-weight: 400;
+ 	margin-bottom: 0px;
+ }
