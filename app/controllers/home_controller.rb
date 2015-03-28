@@ -41,7 +41,7 @@ class HomeController < ApplicationController
 	end
 
 	def is_session_on?
-		today = DateTime.now
+		today = DateTime.now.in_time_zone('Adelaide')
 		session = false
 		if (today.wday == 6) and (today.hour > 12 and today.hour < 17)
 			session = true
