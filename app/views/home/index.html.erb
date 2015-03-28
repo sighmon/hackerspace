@@ -11,7 +11,7 @@
 	<h1>So you like electronics?</h1>
 	<p>Welcome to Hackerspace Adelaide, a place to work on robots, 3D printers, sound generators, ham radio, Arduino, Raspberry Pi, and any other software and hardware projects you can dream up. It's a friendly open environment where people can come who have no prior background in electronics and learn from others who've been doing it for years.</p>
 	<% unless try(:current_user).try(:has_membership?) %>
-		<p><%= link_to 'Become a member!', memberships_path, class: 'btn btn-lg btn-success' %> <%= link_to 'Create an account', new_user_registration_path, class: 'btn btn-lg btn-default' %></p>
+		<p><%= link_to 'Become a member!', memberships_path, class: 'btn btn-lg btn-success' %><% unless try(:current_user) %> <%= link_to 'Create an account', new_user_registration_path, class: 'btn btn-lg btn-default' %><% end %></p>
 	<% end %>
 	<p>This is the membership website, where you can join and help support the growing community of <a href="http://en.wikipedia.org/wiki/Hacker_(hobbyist)">hackers</a>. But you don't need a membership to come along and play, just turn up to one of the sessions!</p>
 	<h2>Hack sessions</h2>
