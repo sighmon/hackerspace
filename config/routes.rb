@@ -18,6 +18,8 @@ Hackerspace::Application.routes.draw do
 
   post 'lookup' => 'users#lookup'
   post 'checkin' => 'users#checkin'
+
+  get 'who' => 'home#who'
   
   get "home/index"
 

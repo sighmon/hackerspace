@@ -40,6 +40,23 @@ class HomeController < ApplicationController
 						}
 	end
 
+	def who
+		if is_session_on?
+			checkins_today = Checkin.where("created_at >= ?", DateTime.now.in_time_zone('Adelaide').beginning_of_day)
+			users_checked_in = []
+			checkins_today.each do |c|
+				minimal_user_details = {}
+				minimal_user_details[:username] = c.user.username
+				minimal_user_details[:checked_in_at] = c.created_at
+				users_checked_in << minimal_user_details
+			end
+
+			render json: users_checked_in
+		else
+			render json: nil
+		end
+	end
+
 	def is_session_on?
 		today = DateTime.now.in_time_zone('Adelaide')
 		session = false
