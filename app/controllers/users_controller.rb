@@ -71,7 +71,7 @@ class UsersController < ApplicationController
 	end
 
 	def user_hash(user)
-		hash = { :id => user.id, :username => user.username, :email => user.email, :joined => user.created_at, :checkins => user.checkins }
+		hash = { :id => user.id, :username => user.username, :joined => user.created_at, :checkins => user.checkins }
 		if current_user && current_user.is_admin?
 			hash[:nfc_atr] = user.nfc_atr
 			hash[:nfc_id] = user.nfc_id
