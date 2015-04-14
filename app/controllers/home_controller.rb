@@ -62,7 +62,7 @@ class HomeController < ApplicationController
 		session = false
 		if (today.wday == 6) and (today.hour > 12 and today.hour < 17)
 			session = true
-		elsif (today.wday == 3) and (today.hour > 17 and today.hour < 22)
+		elsif ((today.wday == 3) or (today.wday == 2)) and (today.hour > 17 and today.hour < 22)
 			session = true
 		end
 		session
