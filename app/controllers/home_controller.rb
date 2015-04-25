@@ -4,7 +4,8 @@ class HomeController < ApplicationController
 		@session_on = is_session_on?
 
 		Checkin.all.each do |checkin|
-			if checkin.created_at.in_time_zone('Adelaide').day == DateTime.now.in_time_zone('Adelaide').day
+			if checkin.created_at >= DateTime.now.in_time_zone('Adelaide').beginning_of_day
+				# @checked_in_users.push(checkin.user.username) unless @checked_in_users.include?(checkin.user.username)
 				@checked_in_users << checkin.user.username
 			end
 		end
