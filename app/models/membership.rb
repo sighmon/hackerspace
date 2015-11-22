@@ -12,7 +12,7 @@ class Membership < ActiveRecord::Base
 		concession = options[:concession] or false
 
 		# Base price for 1 month
-		price = 40000/12.00
+		price = 20000/12.00
 		
 		if autodebit
 			case duration
