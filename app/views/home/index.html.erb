@@ -8,18 +8,60 @@
 		</div>
 	<% end %>
 	<%= image_tag "hackerspace-adelaide-logo.png", :alt => "Hackerspace Adelaide Membership website", :title => "Hackerspace Adelaide Membership website", :width => 200, :class => "home-logo" %>
-	<h1>So you like electronics?</h1>
+	<h1>Do you like electronics?</h1>
 	<p>Welcome to Hackerspace Adelaide, a place to work on robots, 3D printers, sound generators, ham radio, Arduino, Raspberry Pi, and any other software and hardware projects you can dream up. It's a friendly open environment where people can come who have no prior background in electronics and learn from others who've been doing it for years.</p>
 	<% unless try(:current_user).try(:has_membership?) %>
-		<p><%= link_to 'Become a member!', memberships_path, class: 'btn btn-lg btn-success' %><% unless try(:current_user) %> <%= link_to 'Create an account', new_user_registration_path, class: 'btn btn-lg btn-default' %><% end %></p>
+		<p><%= link_to 'Become a member!', memberships_path, class: 'btn btn-lg btn-success' %><% unless try(:current_user) %> or <%= link_to 'Create a free account', new_user_registration_path, class: 'btn btn-lg btn-default' %><% end %></p>
 	<% end %>
 	<p>This is the membership website, where you can join and help support the growing community of <a href="http://en.wikipedia.org/wiki/Hacker_(hobbyist)">hackers</a>. But you don't need a membership to come along and play, just turn up to one of the sessions!</p>
-	<h2>Hack sessions</h2>
-	<p>Wednesday 6pm - 9pm<br>
-	Saturday 1pm - 4pm</p>
-	<p>c/o Majoran<br>
-	14 Grenfell Street,<br>
-	Adelaide, 5000</p>
+
+	<p>Hack sessions are on 3 times a week at various locations around Adelaide. Choose one closest to you, or come along to all three.</p>
+
+	<div class="row">
+		<div class="col-lg-4 hack-sessions">
+			<h3>Tonsley session</h3>
+			<p>Tuesday 6pm - 9pm</p>
+			<p><b>Features</b></p>
+			<ul>
+				<li>Laser cutter</li>
+				<li>6 x Makerbot 3D printers</li>
+				<li>Reflow solder station</li>
+			</ul>
+			<p><a href="https://flindersfuturefocus.flinders.edu.au/major-projects/tonsley/"><b>Flinders University</b></a><br>
+			1284 South Road,<br>
+			Clovelly Park, 5042</p>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6535.84850177366!2d138.56948384180842!3d-35.008601273869544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ab0d068dd535613%3A0xb3da59e457e1fdb3!2sFlinders+University+at+Tonsley!5e0!3m2!1sen!2sau!4v1449049647560" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+		</div>
+		<div class="col-lg-4 hack-sessions">
+			<h3>City session</h3>
+			<p>Wednesday 6pm - 9pm</p>
+			<p><b>Features</b></p>
+			<ul>
+				<li>Central location</li>
+				<li>1 x Prusa i3 3D printer</li>
+				<li>Lots of electronics spares</li>
+			</ul>
+			<p><a href="https://majoran.co"><b>Majoran Distillery</b></a><br>
+			14 Grenfell Street,<br>
+			Adelaide, 5000</p>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3271.2920545266606!2d138.59810861536388!3d-34.92421168037767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ab0ced64be0f9b1%3A0x6d253bda923654f7!2sMajoran!5e0!3m2!1sen!2sau!4v1449049710345" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+		</div>
+		<div class="col-lg-4 hack-sessions">
+			<h3>Woodville session</h3>
+			<p>Saturday 1pm - 4pm</p>
+			<p><b>Features</b></p>
+			<ul>
+				<li>Lots of space</li>
+				<li>We can make noise and mess</li>
+				<li>Outdoor area for flying quadcopters</li>
+			</ul>
+			<p><a href="https://www.charlessturt.sa.gov.au/page.aspx?u=201"><b>The Brocas</b></a><br>
+			111 Woodville Road,<br>
+			Woodville, 5011</p>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3273.289779130154!2d138.53875131536273!3d-34.87406898039034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ab0c63fcdd98639%3A0x4e0d98e521d031f!2sThe+Brocas!5e0!3m2!1sen!2sau!4v1449049750757" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+		</div>
+	</div>
+
 </div>
 
 <div class="row">
