@@ -15,6 +15,21 @@ class User < ActiveRecord::Base
   has_many :memberships
   has_many :checkins
 
+  # Send a welcome email after a user is created
+  after_create :send_welcome_mail
+
+  def send_welcome_mail
+    if Rails.env.production?
+      begin
+        UserMailer.user_signup_confirmation(self).deliver
+      rescue Exception
+        logger.error "Email server is down..."
+      end
+    else
+      logger.info "SEND_WELCOME_MAIL would happen on production."
+    end
+  end
+
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
   attr_accessor :login
