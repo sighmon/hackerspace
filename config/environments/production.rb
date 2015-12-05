@@ -17,7 +17,7 @@ Hackerspace::Application.configure do
   # Default URL for Devise
   config.action_mailer.default_url_options = { :host => 'members.hackadl.org', :protocol => 'https' }
   config.action_mailer.asset_host = 'https://members.hackadl.org'
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :sendmail
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
