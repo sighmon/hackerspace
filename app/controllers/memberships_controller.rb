@@ -310,7 +310,7 @@ class MembershipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def membership_params
-      params.require(:membership).permit(:user_id, :valid_from, :duration, :purchase_date, :cancellation_date, :refund)
+      params.require(:membership).permit(:user_id, :valid_from, :duration, :purchase_date, :cancellation_date, :refund, :price_paid)
     end
 
     def cancel_recurring_membership

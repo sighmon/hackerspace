@@ -27,9 +27,15 @@
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :duration, :class => "col-lg-2 control-label" %>
+      <%= f.label :duration, "Duration (in months)", :class => "col-lg-2 control-label" %>
       <div class="col-lg-10">
         <%= f.number_field :duration, :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :price_paid, "Price paid (in cents)", :class => "col-lg-2 control-label" %>
+      <div class="col-lg-10">
+        <%= f.number_field :price_paid, :class => "form-control" %>
       </div>
     </div>
     <div class="form-group">
