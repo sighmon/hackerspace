@@ -139,6 +139,7 @@ class MembershipsController < ApplicationController
       # Make a new membership.
       @membership = Membership.new(membership_params)
       @membership.purchase_date = DateTime.now
+      payment_complete = true
     else
       # Do the PayPal purchase
       payment_complete = false
