@@ -102,24 +102,19 @@ class MembershipsController < ApplicationController
 
     @user = current_user
 
-    if @user.is_admin?
-      # Let admins create memberships manually
-      @membership = Membership.new
+    # Pay via PayPal
+    @membership = Membership.new
+    @express_token = params[:token]
+    @express_payer_id = params[:PayerID]
+
+    @has_token = not(@express_token.blank? or @express_payer_id.blank?)
+
+    if @has_token
+      retrieve_paypal_express_details(@express_token, {autodebit: session[:express_autodebit]})
+      session[:express_token] = @express_token
+      session[:express_payer_id] = @express_payer_id
     else
-      # Pay via PayPal
-      @membership = Membership.new
-      @express_token = params[:token]
-      @express_payer_id = params[:PayerID]
-
-      @has_token = not(@express_token.blank? or @express_payer_id.blank?)
-
-      if @has_token
-          retrieve_paypal_express_details(@express_token, {autodebit: session[:express_autodebit]})
-          session[:express_token] = @express_token
-          session[:express_payer_id] = @express_payer_id
-      else
-          logger.info "*** No token. ***"
-      end
+      logger.info "*** No token. ***"
     end
   end
 
