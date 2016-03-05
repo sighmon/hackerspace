@@ -130,7 +130,7 @@ class MembershipsController < ApplicationController
   def create
 
     @user = current_user
-    if @user.is_admin?
+    if @user.is_admin? and not session[:express_token]
       # Make a new membership.
       @membership = Membership.new(membership_params)
       @membership.purchase_date = DateTime.now
