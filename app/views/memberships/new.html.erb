@@ -3,7 +3,11 @@
     <span class="glyphicon glyphicon-chevron-left"></span>
     Back
   <% end %>
-  <h1>New membership</h1>
+  <% if session[:single_pass] %>
+  	<h1>Buy day pass</h1>
+  <% else %>
+  	<h1>New membership</h1>
+  <% end %>
 </div>
 
 <%= render 'form' %>

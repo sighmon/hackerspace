@@ -85,8 +85,13 @@
       <dd><%= session[:express_purchase_membership_duration] %> months</dd>
       <dt><strong>Debit amount:</strong></dt>
       <dd>$<%= number_with_precision((session[:express_purchase_price] / 100), :precision => 2) %></dd>
+    <% elsif session[:single_pass] %>
+      <dt><strong>Pass:</strong></dt>
+      <dd><%= session[:express_purchase_membership_duration] %> day</dd>
+      <dt><strong>Amount:</strong></dt>
+      <dd>$<%= number_with_precision((session[:express_purchase_price] / 100), :precision => 2) %></dd>
     <% else %>
-      <dt><strong>membership:</strong></dt>
+      <dt><strong>Membership:</strong></dt>
       <dd><%= session[:express_purchase_membership_duration] %> months</dd>
       <dt><strong>Amount:</strong></dt>
       <dd>$<%= number_with_precision((session[:express_purchase_price] / 100), :precision => 2) %></dd>

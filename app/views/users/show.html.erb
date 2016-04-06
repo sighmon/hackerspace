@@ -22,7 +22,7 @@
 	<% if current_user and ((current_user == @user) or (current_user.is_admin?)) %>
 		<dt><strong>Account type:</strong></dt>
 		<dd><%= @user.user_type %></dd>
-		<% if @user.has_membership? || @user.membership_lapsed? || @user.user_type == "Admin" %>
+		<% if @user.has_membership? || @user.has_daypass? || @user.membership_lapsed? || @user.user_type == "Admin" %>
 			<dt><strong>Expiry date:</strong></dt>
 			<dd><% begin %>
 				<%= @user.expiry_date.strftime("%e %B, %Y") %>

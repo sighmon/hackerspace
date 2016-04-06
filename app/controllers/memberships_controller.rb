@@ -25,6 +25,9 @@ class MembershipsController < ApplicationController
       @express_purchase_membership_duration = 12
     elsif params[:three_month]
       @express_purchase_membership_duration = 3
+    elsif params[:single_pass]
+      session[:single_pass] = true
+      @express_purchase_membership_duration = 1
     end
 
     if params[:concession] == "1"
@@ -70,12 +73,22 @@ class MembershipsController < ApplicationController
       end
       session[:express_purchase_description] = payment_description
 
+      @express_purchase_name = "#{session[:express_purchase_membership_duration]} month Hackerspace Adelaide membership."
+
+      if params[:single_pass]
+        payment_description = "Hackerspace Adelaide day pass to cover consumables."
+        @express_purchase_name = "#{session[:express_purchase_membership_duration]} day pass to Hackerspace Adelaide."
+      end
+
       response = EXPRESS_GATEWAY.setup_purchase(@express_purchase_price,
         :ip                 => request.remote_ip,
         :return_url         => new_membership_url,
         :cancel_return_url  => new_membership_url,
         :allow_note         => true,
-        :items              => [{:name => "#{session[:express_purchase_membership_duration]} month Hackerspace Adelaide membership.", :quantity => 1, :description => payment_description, :amount => session[:express_purchase_price]}],
+        :items              => [{
+          :name => @express_purchase_name, 
+          :quantity => 1, 
+          :description => payment_description, :amount => session[:express_purchase_price]}],
         :currency           => 'AUD'
       )
       logger.info "XXXXXXXXXXXX"

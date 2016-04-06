@@ -37,6 +37,11 @@ class Membership < ActiveRecord::Base
 				price *= 0.5
 			end
 		end
+
+		if duration == 1
+			price = 500
+		end
+
 		return price
 	end
 
@@ -52,8 +57,18 @@ class Membership < ActiveRecord::Base
 		return false
 	end
 
+	def is_daypass?
+		return duration == 1
+	end
+
 	def expiry_date
-		return (cancellation_date or (valid_from + duration.months))
+		# NOTE: We treat duration of 1 as days not months to handle day passes
+		if duration == 1
+			membership_duration = 1.day
+		else
+			membership_duration = duration.months
+		end
+		return (cancellation_date or (valid_from + membership_duration))
 	end
 
 	def was_recurring?

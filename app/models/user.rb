@@ -54,7 +54,11 @@ class User < ActiveRecord::Base
   end
 
   def has_membership?
-  	return membership_valid?
+  	return (membership_valid? and not has_daypass?)
+  end
+
+  def has_daypass?
+    return self.memberships.collect{|s| s.is_daypass?}.include?(true)
   end
 
   def membership_valid?
@@ -104,6 +108,8 @@ class User < ActiveRecord::Base
       t = "Admin"
     elsif has_membership?
       t = "Member"
+    elsif has_daypass?
+      t = "Day pass"
     end
     "#{t}"
   end
