@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Hackerspace::Application.config.secret_key_base = '6d54f1f68826d983927b0fcef3e2ae731710b50fe626ca3c083a88e54a5da5315ccdca36257afba0bc386cc2276774ad57ad75296ef3a0bfe17d8ce0cae47785'
+Hackerspace::Application.config.secret_key_base = ENV["SECRET_KEY_BASE"]
