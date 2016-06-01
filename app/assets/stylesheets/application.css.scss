@@ -14,76 +14,94 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
- .page-header {
- 	margin-top: 20px !important;
- }
+.pages {
+	margin: 0 auto 0 auto;
+	max-width: 800px;
+}
 
- .admin-column {
- 	width: 200px;
- 	text-align: center;
- }
+.tshirt {
+	text-align: center;
+	margin-bottom: 4em;
+}
 
- .dropdown-menu {
- 	margin-top: -9px !important;
- }
+.tshirt img {
+	width: 100%;
+}
 
- .membership-options {
+.tshirt-row + .tshirt-row {
+	// margin-top: 2em;
+}
 
- }
+.page-header {
+	margin-top: 20px !important;
+}
 
- .membership-option {
- 	padding: 1em;
- 	margin-bottom: 2em;
- 	background-color: #F9F9F9;
- 	border-radius: 3px;
- }
+.admin-column {
+	width: 200px;
+	text-align: center;
+}
 
- .membership-option h2 {
- 	margin-top: 0px;
- 	font-size: 1.6em;
- }
+.dropdown-menu {
+	margin-top: -9px !important;
+}
 
- .membership-option h3 {
- 	margin-top: 0px;
- 	font-size: 1.2em;
- 	color: #7D7D7D;
- }
+.membership-options {
 
- .membership-option h3 span {
- 	font-weight: normal;
- 	font-size: 0.8em;
- }
+}
 
- .membership-option + .membership-option {
- 	margin-right: 1em;
- }
+.membership-option {
+	padding: 1em;
+	margin-bottom: 2em;
+	background-color: #F9F9F9;
+	border-radius: 3px;
+}
 
- .jumbotron {
- 	margin-top: 1em;
- }
+.membership-option h2 {
+	margin-top: 0px;
+	font-size: 1.6em;
+}
 
- .session-now-on {
- 	background-color: white;
- 	padding: 1em;
- 	border-radius: 3px;
- 	margin-bottom: 1em;
- }
+.membership-option h3 {
+	margin-top: 0px;
+	font-size: 1.2em;
+	color: #7D7D7D;
+}
 
- .session-now-on h2, .session-now-on h3 {
- 	margin: 0 0 0.2em 0;
- }
+.membership-option h3 span {
+	font-weight: normal;
+	font-size: 0.8em;
+}
 
- .jumbotron .session-now-on h2 {
- 	font-size: 1.5em;
- }
+.membership-option + .membership-option {
+	margin-right: 1em;
+}
 
- .jumbotron .session-now-on h3 {
- 	font-size: 1em;
- 	color: #7D7D7D;
- }
+.jumbotron {
+	margin-top: 1em;
+}
 
- .jumbotron .session-now-on p {
- 	font-size: 1em;
- 	font-weight: 400;
- 	margin-bottom: 0px;
- }
+.session-now-on {
+	background-color: white;
+	padding: 1em;
+	border-radius: 3px;
+	margin-bottom: 1em;
+}
+
+.session-now-on h2, .session-now-on h3 {
+	margin: 0 0 0.2em 0;
+}
+
+.jumbotron .session-now-on h2 {
+	font-size: 1.5em;
+}
+
+.jumbotron .session-now-on h3 {
+	font-size: 1em;
+	color: #7D7D7D;
+}
+
+.jumbotron .session-now-on p {
+	font-size: 1em;
+	font-weight: 400;
+	margin-bottom: 0px;
+}
