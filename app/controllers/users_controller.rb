@@ -54,7 +54,7 @@ class UsersController < ApplicationController
 			end
 			if already_checked_in_today
 				logger.info "SORRY: #{@user.username} has already checked in today."
-				render json: nil
+				render json: nil, status: 403
 			else
 				# Check in!
 				@checkin = @user.checkins.build
@@ -63,12 +63,12 @@ class UsersController < ApplicationController
 					render json: user_hash(@user)
 				else
 					logger.info "Error checking in user: #{@user.username}"
-					render json: nil
+					render json: nil, status: 500
 				end
 			end
 		else
 			logger.info "Couldn't find a user for this card."
-			render json: nil
+			render json: nil, status: 403
 		end
 	end
 
