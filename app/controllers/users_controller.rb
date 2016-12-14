@@ -39,9 +39,9 @@ class UsersController < ApplicationController
 
 	def checkin
 		logger.info "Checkin!"
-		@nfc_atr = Base64.decode64(params[:atr])#.unpack('H*')
 		@nfc_id = Base64.decode64(params[:id])#.unpack('H*')
 		# Ignoring params[:atr] for now
+		# @nfc_atr = Base64.decode64(params[:atr])#.unpack('H*')
 		# @user = User.find_by_nfc_atr_and_nfc_id(@nfc_atr, @nfc_id)
 		@user = User.find_by_nfc_id(@nfc_id)
 		already_checked_in_today = false
