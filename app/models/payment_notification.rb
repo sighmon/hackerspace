@@ -80,7 +80,7 @@ private
 	end
 
 	def renew_membership(first_recurring_membership)
-		@membership = membership.create(
+		@membership = Membership.create(
 			:paypal_profile_id => params["recurring_payment_id"],
 			:paypal_payer_id => params["payer_id"],
 			:paypal_email => params["payer_email"],
