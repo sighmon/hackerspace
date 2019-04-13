@@ -65,6 +65,7 @@
       <thead>
         <tr>
           <th>User (:id)</th>
+	  <th>Email</th>
           <th>Valid from</th>
           <th>Duration</th>
           <th>Recurring</th>
@@ -77,6 +78,7 @@
       <tbody>
         <%= content_tag_for(:tr, @memberships) do |membership| %>
           <td><%= link_to membership.user.username, user_path(membership.user) %> (<%= membership.user_id %>)</td>
+	  <td><%= membership.user.email %></td>
           <td><%= membership.valid_from.strftime("%d %B, %Y") %></td>
           <td><%= membership.duration %></td>
           <td><%= membership.is_recurring? ? membership.paypal_profile_id : "No" %></td>
