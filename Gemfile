@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.10'
+gem 'rails', '4.2.11'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -25,7 +25,7 @@ gem 'coffee-rails', '>= 4.0.0'
 # Twitter Bootstrap 3
 # https://github.com/anjlab/bootstrap-rails
 # gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails', :github => 'anjlab/bootstrap-rails'
-gem 'bootstrap-sass', '~> 3.3.3'
+gem 'bootstrap-sass', '~> 3.4.1'
 
 # Active Merchant for PayPal payments
 gem 'activemerchant'
